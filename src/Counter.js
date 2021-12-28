@@ -1,27 +1,39 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
+
   state = {
     number : 0
   }
 
-  constructor(props){
-    super(props);
-    state = {
-      number: 1
-    }
-  }
+  // constructor(props){
+  //   super(props);
+  //   state = {
+  //     number: 1
+  //   }
+  // }
 
   handleIncrease = () => {
+    // this.setState({
+    //   number : this.state.number + 1
+    // });
+    // 비구조화 할당 변경
+    const {number} = this.state;
     this.setState({
-      number : this.state.number + 1
+      number : number + 1
     });
   }
 
   handleDecrease = () => {
-    this.setState({
-      number : this.state.number - 1
-    });
+    // this.setState({
+    //   number : this.state.number - 1
+    // });
+    // 비구조화 할당 변경
+    this.setState(
+      ({number}) => ({
+        number: number - 1
+      })
+    );
   }
   render() {
     return (

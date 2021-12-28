@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './App.css'
 import MyName from './MyName';
 import MyName1 from './MyName1';
+import Counter from './Counter'
 class App extends Component {
   render() {
     const name = "react";
@@ -51,6 +52,7 @@ class App extends Component {
           <MyName />
           <MyName1 name1="리액트"></MyName1>
           {/* 주석 */}
+          <Counter/>
         </Fragment>
     );
   }
