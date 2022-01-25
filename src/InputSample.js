@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 function InputSample() {
   console.log(1);
@@ -6,6 +6,8 @@ function InputSample() {
     name: '',
     nickname: ''
   });
+
+  const nameInput = useRef();
   console.log(2);
   console.log(inputs);
   const {name, nickname} = inputs;  //비구조화 할당을 통해 값 추출, 객체의 값을 각각 변수에 할당
@@ -26,10 +28,11 @@ function InputSample() {
       name: '',
       nickname: ''
     })
+    nameInput.current.focus();
   }
   return(
     <div>
-      <input name="name" placeholder="이름" value={name} onChange={onChange}/>
+      <input name="name" placeholder="이름" value={name} onChange={onChange} ref={nameInput}/>
       <input name="nickname" placeholder="닉네임" value={nickname} onChange={onChange}/>
       <button onClick={onReset}>초기화</button>
       <div>
